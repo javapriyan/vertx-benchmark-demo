@@ -15,8 +15,12 @@ public class GreetingController {
     public String greetMe(@RequestParam(value="name", required=false, defaultValue="Owly") String name, Model model) throws InterruptedException {
         model.addAttribute("message","Hey Little, "+name+",Ready to hoot ?");
         System.out.println("Request received");
-        Thread.sleep(1000);
+        doAnIO();
         System.out.println("Request processed");
         return "greetingOwl";
+    }
+
+    private void doAnIO() throws InterruptedException {
+        Thread.sleep(1000);
     }
 }
